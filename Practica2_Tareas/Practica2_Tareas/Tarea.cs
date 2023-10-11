@@ -8,6 +8,7 @@ namespace Practica2_Tareas
 {
     internal class Tarea
     {
+
         string descripcion;
         DateTime fechaVencimiento;
         bool estadoCompletado;
@@ -33,12 +34,19 @@ namespace Practica2_Tareas
         {
         }
 
+
+        public override string ToString()
+        {
+            return "Tarea:\n\t"+Descripcion+"\n\t"+FechaVencimiento.ToString()+"\n\tCompletado: "+EstadoCompletado;
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is Tarea tarea &&
                    Descripcion == tarea.Descripcion &&
                    FechaVencimiento == tarea.FechaVencimiento &&
                    EstadoCompletado == tarea.EstadoCompletado;
+
         }
 
         public override int GetHashCode()

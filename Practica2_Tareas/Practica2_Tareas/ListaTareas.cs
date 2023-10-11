@@ -15,16 +15,16 @@ namespace Practica2_Tareas
 
         public ListaTareas(List<Tarea> lista)
         {
-            Lista = lista;
+            lista=new List<Tarea>();
         }
 
         public ListaTareas()
         {
-            List<Tarea> tareas = new List<Tarea>();
+                Lista = new List<Tarea>();
         }
         public void agregarTarea()
         {
-            ListaTareas listaTareas = new ListaTareas();
+
             Console.WriteLine("Añada una descripción para la nueva tarea.");
             string desc=Console.ReadLine();
             Console.WriteLine("Añada una fecha de vencimiento con este formato: MM DD, YYYY");
@@ -34,13 +34,22 @@ namespace Practica2_Tareas
             {
                 DateTime dateTime = DateTime.Parse(dateString, cultureInfo, DateTimeStyles.NoCurrentDateDefault);
                 Console.WriteLine("Done1.");
-                listaTareas.Add(new Tarea(desc, dateTime));
-                Console.WriteLine("Done2.");
+                Lista.Add(new Tarea(desc, dateTime));
+                Console.WriteLine(Lista.ToString());
             }
             catch (FormatException)
             {
                 Console.WriteLine("No se ha podido registrar la fecha. Compruebe el formato");
             }
+        }
+        public override string ToString()
+        {
+            string str="";
+            foreach (Tarea tarea in lista)
+            {
+                 str= str+tarea.ToString();
+            }
+            return str;
         }
     }
 }
