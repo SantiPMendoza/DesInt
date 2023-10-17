@@ -1,0 +1,14 @@
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\bin\Debug\net6.0\Practica2_Tareas.exe
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\bin\Debug\net6.0\Practica2_Tareas.deps.json
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\bin\Debug\net6.0\Practica2_Tareas.runtimeconfig.json
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\bin\Debug\net6.0\Practica2_Tareas.dll
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\bin\Debug\net6.0\Practica2_Tareas.pdb
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\obj\Debug\net6.0\Practica2_Tareas.GeneratedMSBuildEditorConfig.editorconfig
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\obj\Debug\net6.0\Practica2_Tareas.AssemblyInfoInputs.cache
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\obj\Debug\net6.0\Practica2_Tareas.AssemblyInfo.cs
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\obj\Debug\net6.0\Practica2_Tareas.csproj.CoreCompileInputs.cache
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\obj\Debug\net6.0\Practica2_Tareas.dll
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\obj\Debug\net6.0\refint\Practica2_Tareas.dll
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\obj\Debug\net6.0\Practica2_Tareas.pdb
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\obj\Debug\net6.0\Practica2_Tareas.genruntimeconfig.cache
+D:\DesInt\Practica2_Tareas\Practica2_Tareas\obj\Debug\net6.0\ref\Practica2_Tareas.dll
