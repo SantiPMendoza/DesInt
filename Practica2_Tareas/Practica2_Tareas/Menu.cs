@@ -11,11 +11,11 @@ namespace Practica2_Tareas
         static void Main()
         {
             ListaTareas lista = new ListaTareas();
-            lista.agregarTarea();
-            //elegir();
+            lista.AgregarTarea();
+            lista.ListarTareas();
 
         }
-        static void mostrar()
+        static void Mostrar()
         {
             Console.WriteLine("APLICACIÓN DE GESTIÓN DE TAREAS:");
             Console.WriteLine("\n\t1.Listar todas las tareas.");
@@ -27,12 +27,12 @@ namespace Practica2_Tareas
             Console.WriteLine("\n\t7.Cargar tareas desde archivo.");
             Console.WriteLine("\n\n\t8.Salir.");
         }
-        static void elegir()
+        static void Elegir()
         {
             string entrada;
             do
             {
-                mostrar();
+                Mostrar();
                 entrada = Console.ReadLine();
 
                 switch (entrada)
@@ -40,29 +40,28 @@ namespace Practica2_Tareas
                     case "0":
                         break;
                     case "1":
-                        Console.WriteLine("Usuario creado.");
+                        Console.WriteLine("Todas las tareas listadas.");
                         continue;
                     case "2":
-                        Console.WriteLine("Libro creado.");
+                        Console.WriteLine("Tareas incompletas listadas.");
                         continue;
                     case "3":
-                        Console.WriteLine("Autor creado.");
+                        Console.WriteLine("Tareas listadas por fecha de vencimiento.");
                         continue;
                     case "4":
-                        Console.WriteLine("Libro reservado");
+                        Console.WriteLine("Tarea añadida.");
                         continue;
                     case "5":
-                        Console.WriteLine("Edición añadida.");
+                        Console.WriteLine("Tarea marcada como completada.");
                         continue;
                     case "6":
-                        Console.WriteLine();
+                        Console.WriteLine("Tareas guardadas en archivo exitosamente.");
                         continue;
                     case "7":
-                        Console.WriteLine();
+                        Console.WriteLine("Tareas cargadas desde archivo exitosamente.");
                         continue;
                     case "8":
-                        Console.WriteLine();
-                        continue;
+                        break;
 
                     default:
                         Console.WriteLine("La entrada es inválida");
