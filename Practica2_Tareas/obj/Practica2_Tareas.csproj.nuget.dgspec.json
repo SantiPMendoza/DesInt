@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DesInt\\Practica2_Tareas\\Practica2_Tareas\\Practica2_Tareas.csproj": {}
+    "E:\\DesInt\\DesInt\\Practica2_Tareas\\Practica2_Tareas.csproj": {}
   },
   "projects": {
-    "D:\\DesInt\\Practica2_Tareas\\Practica2_Tareas\\Practica2_Tareas.csproj": {
+    "E:\\DesInt\\DesInt\\Practica2_Tareas\\Practica2_Tareas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DesInt\\Practica2_Tareas\\Practica2_Tareas\\Practica2_Tareas.csproj",
+        "projectUniqueName": "E:\\DesInt\\DesInt\\Practica2_Tareas\\Practica2_Tareas.csproj",
         "projectName": "Practica2_Tareas",
-        "projectPath": "D:\\DesInt\\Practica2_Tareas\\Practica2_Tareas\\Practica2_Tareas.csproj",
-        "packagesPath": "C:\\Users\\Vespertino\\.nuget\\packages\\",
-        "outputPath": "D:\\DesInt\\Practica2_Tareas\\Practica2_Tareas\\obj\\",
+        "projectPath": "E:\\DesInt\\DesInt\\Practica2_Tareas\\Practica2_Tareas.csproj",
+        "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
+        "outputPath": "E:\\DesInt\\DesInt\\Practica2_Tareas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Vespertino\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

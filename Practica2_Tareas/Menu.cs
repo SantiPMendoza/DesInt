@@ -8,11 +8,16 @@ namespace Practica2_Tareas
 {
     internal class Menu
     {
+        static ListaTareas lista;
         static void Main()
         {
-            ListaTareas lista = new ListaTareas();
-            lista.AgregarTarea();
-            lista.ListarTareas();
+            lista = new ListaTareas();
+            lista.Lista.Add(new Tarea("aupa",DateTime.Now));
+            lista.Lista.Add(new Tarea("aupaaaa", DateTime.Now));
+            Elegir();
+            
+            //lista.AgregarTarea();
+            //lista.ListarTareas();
 
         }
         static void Mostrar()
@@ -22,10 +27,11 @@ namespace Practica2_Tareas
             Console.WriteLine("\n\t2.Listar tareas incompletas.");
             Console.WriteLine("\n\t3.Listar tareas por fecha de vencimiento.");
             Console.WriteLine("\n\t4.Agregar nueva tarea.");
-            Console.WriteLine("\n\t5.Marcar tarea como completada.");
-            Console.WriteLine("\n\t6.Guardar tareas en un archivo.");
-            Console.WriteLine("\n\t7.Cargar tareas desde archivo.");
-            Console.WriteLine("\n\n\t8.Salir.");
+            Console.WriteLine("\n\t5.Eliminar una tarea.");
+            Console.WriteLine("\n\t6.Marcar tarea como completada.");
+            Console.WriteLine("\n\t7.Guardar tareas en un archivo.");
+            Console.WriteLine("\n\t8.Cargar tareas desde archivo.");
+            Console.WriteLine("\n\n\t9.Salir.\n");
         }
         static void Elegir()
         {
@@ -37,10 +43,10 @@ namespace Practica2_Tareas
 
                 switch (entrada)
                 {
-                    case "0":
-                        break;
+
                     case "1":
-                        Console.WriteLine("Todas las tareas listadas.");
+                        lista.ListarTareas();
+                        Console.WriteLine("Todas las tareas listadas.\n");
                         continue;
                     case "2":
                         Console.WriteLine("Tareas incompletas listadas.");
@@ -49,18 +55,23 @@ namespace Practica2_Tareas
                         Console.WriteLine("Tareas listadas por fecha de vencimiento.");
                         continue;
                     case "4":
-                        Console.WriteLine("Tarea añadida.");
+                        lista.AgregarTarea();
+                        Console.WriteLine("");
                         continue;
                     case "5":
-                        Console.WriteLine("Tarea marcada como completada.");
+                        lista.EliminarTarea();
+                        Console.WriteLine("Tarea eliminada exitosamente.\n");
                         continue;
                     case "6":
-                        Console.WriteLine("Tareas guardadas en archivo exitosamente.");
+                        Console.WriteLine("Tarea marcada como completada.");
                         continue;
                     case "7":
-                        Console.WriteLine("Tareas cargadas desde archivo exitosamente.");
+                        Console.WriteLine("Tareas guardadas en archivo exitosamente.");
                         continue;
                     case "8":
+                        Console.WriteLine("Tareas cargadas desde archivo exitosamente.");
+                        continue;
+                    case "0":
                         break;
 
                     default:
@@ -69,7 +80,7 @@ namespace Practica2_Tareas
 
                 }
 
-            } while (!entrada.Equals("8"));
+            } while (!entrada.Equals("0"));
         }
     }
 

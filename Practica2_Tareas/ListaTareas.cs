@@ -10,59 +10,66 @@ namespace Practica2_Tareas
 {
     internal class ListaTareas
     {
-        List<Tarea> lista;
+        List<Tarea> lista = new List<Tarea>();
 
         internal List<Tarea> Lista { get => lista; set => lista = value; }
 
         public ListaTareas(List<Tarea> lista)
         {
-            Lista=new List<Tarea>();
+            Lista = new List<Tarea>();
         }
 
         public ListaTareas()
         {
-                Lista = new List<Tarea>();
+            Lista = new List<Tarea>();
         }
         public void AgregarTarea()
         {
             Console.WriteLine("Añada una descripción para la nueva tarea.");
-            string desc=Console.ReadLine();
+            string desc = Console.ReadLine();
             Console.WriteLine("Añada una fecha de vencimiento con este formato: MM DD, YYYY");
             string dateString = Console.ReadLine();
             var cultureInfo = new CultureInfo("es-ES");
+
             try
             {
                 DateTime dateTime = DateTime.Parse(dateString, cultureInfo, DateTimeStyles.NoCurrentDateDefault);
-                //Console.WriteLine("Done1.");
-                Tarea tarea = new Tarea(desc, dateTime);
-                foreach(Tarea t in Lista)
+                Tarea nuevaTarea = new Tarea(desc, dateTime);
+
+                // Verificar si la tarea ya existe en la lista
+                bool tareaExistente = false;
+                foreach (Tarea t in Lista)
                 {
-                    if (t.Equals(tarea))
+                    if (t.Equals(nuevaTarea))
                     {
-                        Lista.Add(tarea);
-                        Console.WriteLine("Añadido exitosamente");
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("El elemento ya existe");
-
+                        tareaExistente = true;
+                        break;
                     }
                 }
-                
 
-                //Console.WriteLine(Lista.ToString());
+                if (!tareaExistente)
+                {
+                    Lista.Add(nuevaTarea);
+                    Console.WriteLine("Tarea añadida exitosamente.\n");
+                }
+                else
+                {
+                    Console.WriteLine("La tarea ya existe en la lista.");
+                }
+
             }
+
             catch (FormatException)
             {
-                Console.WriteLine("No se ha podido registrar la fecha. Compruebe el formato");
+                Console.WriteLine("No se ha podido registrar la fecha. Compruebe el formato.");
             }
 
         }
         public void EliminarTarea()
-        {   
+        {
+            ListarTareas();
             Console.WriteLine("¿Id de la tarea a eliminar?");
-            int id=int.Parse(Console.ReadLine());
+            int id = int.Parse(Console.ReadLine());
             Tarea tareaAEliminar = Lista.Find(t => t.Id == id);
             if (tareaAEliminar != null)
             {
@@ -71,17 +78,17 @@ namespace Practica2_Tareas
         }
         public void ListarTareas()
         {
-            Lista.ToString();
+            Console.WriteLine(ToString());
         }
         public override string ToString()
         {
-            string str="";
+            StringBuilder str = new StringBuilder();
             foreach (Tarea tarea in Lista)
             {
-                 str= str+tarea.ToString();
+                str.AppendLine(tarea.ToString());
             }
-            return str;
+            return str.ToString();
         }
-
+        
     }
 }

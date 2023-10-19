@@ -8,7 +8,8 @@ namespace Practica2_Tareas
 {
     internal class Tarea
     {
-        int id = 0;
+        private static int contadorId = 0;
+        int id;
         string descripcion;
         DateTime fechaVencimiento;
         bool estadoCompletado;
@@ -20,7 +21,7 @@ namespace Practica2_Tareas
 
         public Tarea(string descripcion, DateTime fechaVencimiento, bool estadoCompletado)
         {
-            Id= Id + 1;
+            Id= Interlocked.Increment(ref contadorId);
             Descripcion = descripcion;
             FechaVencimiento = fechaVencimiento;
             EstadoCompletado = estadoCompletado;
@@ -28,19 +29,20 @@ namespace Practica2_Tareas
 
         public Tarea(string descripcion, DateTime fechaVencimiento)
         {
-            Id = Id + 1;
+            Id = Interlocked.Increment(ref contadorId);
             Descripcion = descripcion;
             FechaVencimiento = fechaVencimiento;
         }
 
         public Tarea()
         {
+            Id = Interlocked.Increment(ref contadorId);
         }
 
 
         public override string ToString()
         {
-            return "Tarea: "+Id+"\n\t"+Descripcion+"\n\t"+FechaVencimiento.ToString()+"\n\tCompletado: "+EstadoCompletado;
+            return "Tarea: "+Id+"\n\t"+Descripcion+"\n\t"+FechaVencimiento.ToString()+"\n\tCompletado: "+(EstadoCompletado? "Completado":"Pendiente");
         }
 
         public override bool Equals(object? obj)
