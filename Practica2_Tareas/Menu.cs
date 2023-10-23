@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,9 +32,9 @@ namespace Practica2_Tareas
             Console.WriteLine("\n\t6.Marcar tarea como completada.");
             Console.WriteLine("\n\t7.Guardar tareas en un archivo.");
             Console.WriteLine("\n\t8.Cargar tareas desde archivo.");
-            Console.WriteLine("\n\n\t9.Salir.\n");
+            Console.WriteLine("\n\n\t0.Salir.\n");
         }
-        static void Elegir()
+        static async Task Elegir()
         {
             string entrada;
             do
@@ -49,10 +50,12 @@ namespace Practica2_Tareas
                         Console.WriteLine("Todas las tareas listadas.\n");
                         continue;
                     case "2":
-                        Console.WriteLine("Tareas incompletas listadas.");
+                        lista.ListarTareasIncompletas();
+                        Console.WriteLine("Tareas incompletas listadas.\n");
                         continue;
                     case "3":
-                        Console.WriteLine("Tareas listadas por fecha de vencimiento.");
+                        lista.ListarTareasFecha();
+                        Console.WriteLine("Tareas listadas por fecha de vencimiento.\n");
                         continue;
                     case "4":
                         lista.AgregarTarea();
@@ -63,19 +66,23 @@ namespace Practica2_Tareas
                         Console.WriteLine("Tarea eliminada exitosamente.\n");
                         continue;
                     case "6":
-                        Console.WriteLine("Tarea marcada como completada.");
+                        lista.CompletarTarea();
+                        Console.WriteLine("");
                         continue;
                     case "7":
-                        Console.WriteLine("Tareas guardadas en archivo exitosamente.");
+                        lista.GuardarArchivo();
+                        Console.WriteLine("");
                         continue;
                     case "8":
-                        Console.WriteLine("Tareas cargadas desde archivo exitosamente.");
+                        lista.ListarArchivos(".");
+                        //lista.CargarArchivo();
+                        Console.WriteLine("Tareas cargadas desde archivo exitosamente.\n");
                         continue;
                     case "0":
                         break;
 
                     default:
-                        Console.WriteLine("La entrada es inválida");
+                        Console.WriteLine("La entrada es inválida.\n");
                         continue;
 
                 }

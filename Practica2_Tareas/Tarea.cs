@@ -42,18 +42,20 @@ namespace Practica2_Tareas
 
         public override string ToString()
         {
-            return "Tarea: "+Id+"\n\t"+Descripcion+"\n\t"+FechaVencimiento.ToString()+"\n\tCompletado: "+(EstadoCompletado? "Completado":"Pendiente");
+            return "Tarea: "+Id+"\n\t"+Descripcion+"\n\t"+FechaVencimiento.ToString()+"\n\t¿Completado?: "+(EstadoCompletado? "Sí":"No");
+        }
+
+ 
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(id, descripcion, fechaVencimiento, estadoCompletado);
         }
 
         public override bool Equals(object? obj)
         {
             return obj is Tarea tarea &&
-                   id == tarea.id;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(id, descripcion, fechaVencimiento, estadoCompletado);
+                   Id == tarea.Id;
         }
     }
 }
