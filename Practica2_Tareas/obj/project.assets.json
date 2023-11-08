@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\santi\\.nuget\\packages\\": {}
+    "C:\\Users\\Vespertino\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\DesInt\\DesInt\\Practica2_Tareas\\Practica2_Tareas.csproj",
+      "projectUniqueName": "G:\\DesInt\\DesInt\\Practica2_Tareas\\Practica2_Tareas.csproj",
       "projectName": "Practica2_Tareas",
-      "projectPath": "E:\\DesInt\\DesInt\\Practica2_Tareas\\Practica2_Tareas.csproj",
-      "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
-      "outputPath": "E:\\DesInt\\DesInt\\Practica2_Tareas\\obj\\",
+      "projectPath": "G:\\DesInt\\DesInt\\Practica2_Tareas\\Practica2_Tareas.csproj",
+      "packagesPath": "C:\\Users\\Vespertino\\.nuget\\packages\\",
+      "outputPath": "G:\\DesInt\\DesInt\\Practica2_Tareas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vespertino\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
