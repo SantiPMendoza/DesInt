@@ -47,5 +47,11 @@ namespace GestionArchivos
             Info info = new Info();
             info.Show();
         }
+
+        private void toolStripTextBox3_Click(object sender, EventArgs e)
+        {
+            MenuAbrir abrir = new MenuAbrir();
+            abrir.Show();
+        }
     }
 }

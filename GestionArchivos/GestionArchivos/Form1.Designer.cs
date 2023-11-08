@@ -29,26 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            flowLayoutPanel1 = new FlowLayoutPanel();
             menu = new ToolStrip();
             infoButton = new ToolStripButton();
             fileButton = new ToolStripDropDownButton();
             toolStripTextBox1 = new ToolStripTextBox();
             toolStripTextBox2 = new ToolStripTextBox();
             toolStripTextBox3 = new ToolStripTextBox();
-            flowLayoutPanel1.SuspendLayout();
+            panel1 = new Panel();
             menu.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(menu);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(800, 450);
-            flowLayoutPanel1.TabIndex = 2;
             // 
             // menu
             // 
@@ -59,7 +49,7 @@
             menu.Items.AddRange(new ToolStripItem[] { infoButton, fileButton });
             menu.Location = new Point(0, 0);
             menu.Name = "menu";
-            menu.Size = new Size(800, 25);
+            menu.Size = new Size(854, 25);
             menu.Stretch = true;
             menu.TabIndex = 1;
             menu.Text = "toolStrip1";
@@ -103,31 +93,39 @@
             toolStripTextBox3.Name = "toolStripTextBox3";
             toolStripTextBox3.Size = new Size(100, 23);
             toolStripTextBox3.Text = "Abrir";
+            toolStripTextBox3.Click += toolStripTextBox3_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(menu);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(854, 474);
+            panel1.TabIndex = 2;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(800, 450);
-            Controls.Add(flowLayoutPanel1);
+            ClientSize = new Size(854, 474);
+            Controls.Add(panel1);
             Name = "Form1";
             Text = "Form1";
-            flowLayoutPanel1.ResumeLayout(false);
             menu.ResumeLayout(false);
             menu.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private FlowLayoutPanel flowLayoutPanel1;
         private ToolStrip menu;
         private ToolStripButton infoButton;
         private ToolStripDropDownButton fileButton;
         private ToolStripTextBox toolStripTextBox1;
         private ToolStripTextBox toolStripTextBox2;
         private ToolStripTextBox toolStripTextBox3;
+        private Panel panel1;
     }
 }
