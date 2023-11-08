@@ -34,7 +34,7 @@ namespace GestionArchivos
 
         private void menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            menu.Width = flowLayoutPanel1.Width;
+
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -44,7 +44,8 @@ namespace GestionArchivos
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-
+            Info info = new Info();
+            info.Show();
         }
     }
 }

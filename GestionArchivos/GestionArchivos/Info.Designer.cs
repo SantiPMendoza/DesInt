@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info));
             panel1 = new Panel();
             panel2 = new Panel();
-            textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
+            labelTexto = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -40,12 +41,13 @@
             // panel1
             // 
             panel1.AutoSize = true;
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(labelTexto);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 450);
+            panel1.Location = new Point(0, 400);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 0);
+            panel1.Size = new Size(800, 50);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // panel2
             // 
@@ -53,28 +55,30 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 450);
+            panel2.Size = new Size(800, 400);
             panel2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            textBox1.Dock = DockStyle.Bottom;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(0, 0);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(800, 0);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "Esta aplicación ha sido realizada por Santi Puebla Mendoza (feat. ChatGPT). Está diseñada para permitir crear, modificar y borrar archivos.\r\n";
             // 
             // pictureBox1
             // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(800, 450);
+            pictureBox1.Size = new Size(800, 400);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // labelTexto
+            // 
+            labelTexto.Dock = DockStyle.Bottom;
+            labelTexto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelTexto.Location = new Point(0, 0);
+            labelTexto.Name = "labelTexto";
+            labelTexto.Size = new Size(800, 50);
+            labelTexto.TabIndex = 1;
+            labelTexto.Text = "Esta aplicación ha sido realizada por Santi Puebla Mendoza (feat. ChatGPT). Está diseñada para permitir crear, modificar y borrar archivos.";
             // 
             // Info
             // 
@@ -86,7 +90,6 @@
             Name = "Info";
             Text = "Info";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -96,8 +99,8 @@
         #endregion
 
         private Panel panel1;
-        private TextBox textBox1;
         private Panel panel2;
         private PictureBox pictureBox1;
+        private Label labelTexto;
     }
 }

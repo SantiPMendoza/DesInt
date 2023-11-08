@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             flowLayoutPanel1 = new FlowLayoutPanel();
             menu = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
-            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            infoButton = new ToolStripButton();
+            fileButton = new ToolStripDropDownButton();
             toolStripTextBox1 = new ToolStripTextBox();
             toolStripTextBox2 = new ToolStripTextBox();
             toolStripTextBox3 = new ToolStripTextBox();
@@ -42,19 +42,21 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.Controls.Add(menu);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(800, 450);
             flowLayoutPanel1.TabIndex = 2;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // menu
             // 
             menu.AutoSize = false;
             menu.BackColor = SystemColors.ControlLight;
-            menu.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripDropDownButton1 });
+            menu.CanOverflow = false;
+            menu.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            menu.Items.AddRange(new ToolStripItem[] { infoButton, fileButton });
             menu.Location = new Point(0, 0);
             menu.Name = "menu";
             menu.Size = new Size(800, 25);
@@ -62,27 +64,27 @@
             menu.TabIndex = 1;
             menu.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // infoButton
             // 
-            toolStripButton1.AutoSize = false;
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(64, 22);
-            toolStripButton1.Text = "Info";
-            toolStripButton1.Click += toolStripButton1_Click_1;
+            infoButton.AutoSize = false;
+            infoButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            infoButton.Image = (Image)resources.GetObject("infoButton.Image");
+            infoButton.ImageTransparentColor = Color.Magenta;
+            infoButton.Name = "infoButton";
+            infoButton.Size = new Size(64, 22);
+            infoButton.Text = "Info";
+            infoButton.Click += toolStripButton1_Click_1;
             // 
-            // toolStripDropDownButton1
+            // fileButton
             // 
-            toolStripDropDownButton1.AutoSize = false;
-            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { toolStripTextBox1, toolStripTextBox2, toolStripTextBox3 });
-            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
-            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
-            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            toolStripDropDownButton1.Size = new Size(76, 22);
-            toolStripDropDownButton1.Text = "File";
+            fileButton.AutoSize = false;
+            fileButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            fileButton.DropDownItems.AddRange(new ToolStripItem[] { toolStripTextBox1, toolStripTextBox2, toolStripTextBox3 });
+            fileButton.Image = (Image)resources.GetObject("fileButton.Image");
+            fileButton.ImageTransparentColor = Color.Magenta;
+            fileButton.Name = "fileButton";
+            fileButton.Size = new Size(76, 22);
+            fileButton.Text = "File";
             // 
             // toolStripTextBox1
             // 
@@ -106,6 +108,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(800, 450);
             Controls.Add(flowLayoutPanel1);
             Name = "Form1";
@@ -114,14 +117,15 @@
             menu.ResumeLayout(false);
             menu.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private FlowLayoutPanel flowLayoutPanel1;
         private ToolStrip menu;
-        private ToolStripButton toolStripButton1;
-        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripButton infoButton;
+        private ToolStripDropDownButton fileButton;
         private ToolStripTextBox toolStripTextBox1;
         private ToolStripTextBox toolStripTextBox2;
         private ToolStripTextBox toolStripTextBox3;
