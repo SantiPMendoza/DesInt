@@ -1,8 +1,8 @@
 namespace GestionArchivos
 {
-    public partial class Form1 : Form
+    public partial class GestionArchivos : Form
     {
-        public Form1()
+        public GestionArchivos()
         {
             InitializeComponent();
         }

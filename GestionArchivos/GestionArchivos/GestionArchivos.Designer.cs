@@ -1,6 +1,6 @@
 ﻿namespace GestionArchivos
 {
-    partial class Form1
+    partial class GestionArchivos
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionArchivos));
             menu = new ToolStrip();
             infoButton = new ToolStripButton();
             fileButton = new ToolStripDropDownButton();

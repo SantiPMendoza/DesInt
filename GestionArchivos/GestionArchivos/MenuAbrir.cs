@@ -12,39 +12,90 @@ namespace GestionArchivos
 {
     public partial class MenuAbrir : Form
     {
-        string files = "FILES";
-        private PictureBox pictureBoxFile;
-        private PictureBox pictureBoxDir;
+
+        private PictureBox pictureBox;
+ 
+            
+        private string files = "FILES";
+
         public MenuAbrir()
         {
             InitializeComponent();
+            this.Load += MenuAbrir_Load;
         }
 
+        private void MenuAbrir_Load(object sender, EventArgs e)
+        {
+            Generar();
+        }
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            Controls.Clear();
 
+        }
+
+        private void Generar()
+        {
             if (!Directory.Exists(files))
             {
                 Directory.CreateDirectory(files);
-
             }
-            string[] archivos = Directory.GetFiles(files);
-            string[] directorios = Directory.GetDirectories(files);
+
+            string[] archivos = Directory.GetFileSystemEntries(files);
 
             for (int i = 0; i < archivos.Length; i++)
             {
-                for(int j = 0; j < directorios.Length; j++)
-                {
-                    pictureBoxFile = new PictureBox();
-                    pictureBoxFile.Image = Properties.Resources.archivo;
-                    pictureBoxFile.Location = new Point(i * 100, 0);
-                    pictureBoxFile.Name = "pictureBoxFile" + i;
-                    pictureBoxFile.Size = new Size(100, 100);
-                    Controls.Add(pictureBoxFile);
+                bool esDir = Directory.Exists(archivos[i]);
 
+                Panel filePanel = new Panel();
+                filePanel.Size = new Size(100, 150);
+                filePanel.AutoSize = false;
+
+                PictureBox pictureBox = new PictureBox();
+                try
+                {
+                    if (esDir)
+                    {
+                        pictureBox.Image = global::GestionArchivos.Properties.Resources.directorio;
+                        Console.WriteLine("Directorio");
+                    }
+                    else
+                    {
+                        pictureBox.Image = global::GestionArchivos.Properties.Resources.archivo;
+                        Console.WriteLine("Archivo");
+                    }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar la imagen: {ex.Message}");
+                }
+
+                //pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox.Size = new Size(100, 100);
+                pictureBox.Dock = DockStyle.Top;
+
+                Label nameLabel = new Label();
+                nameLabel.Text = Path.GetFileName(archivos[i]);
+                nameLabel.TextAlign = ContentAlignment.MiddleCenter;
+                nameLabel.Dock = DockStyle.Bottom;
+                nameLabel.Size = new Size(100, 50);
+
+                filePanel.Controls.Add(pictureBox);
+                filePanel.Controls.Add(nameLabel);
+
+                flowLayoutPanel1.Controls.Add(filePanel);
             }
+        }
+
+        private void crearArchivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateFile createFile=new CreateFile();
+            createFile.Show();
+        }
+
+        private void crearDirectorioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateDirectory createDirectory = new CreateDirectory();
+            createDirectory.Show();
         }
     }
 }

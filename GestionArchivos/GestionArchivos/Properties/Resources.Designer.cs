@@ -73,6 +73,16 @@ namespace GestionArchivos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap directorio {
+            get {
+                object obj = ResourceManager.GetObject("directorio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ilustración_de_la_selva_antártica__Crédito_Alfred_Wegener_Institut_James_McKay_800x400 {
             get {
                 object obj = ResourceManager.GetObject("Ilustración-de-la-selva-antártica.-Crédito-Alfred-Wegener-Institut-James-McKay" +
