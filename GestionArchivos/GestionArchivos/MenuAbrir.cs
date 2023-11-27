@@ -71,7 +71,7 @@ namespace GestionArchivos
 
                 //pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox.Size = new Size(100, 100);
-                pictureBox.Dock = DockStyle.Top;
+                pictureBox.Dock = DockStyle.Fill;
 
                 Label nameLabel = new Label();
                 nameLabel.Text = Path.GetFileName(archivos[i]);
