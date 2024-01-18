@@ -105,6 +105,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(800, 235);
             dataGridView1.TabIndex = 4;
+            dataGridView1.AutoGenerateColumns = true;
             // 
             // labelPrecio
             // 

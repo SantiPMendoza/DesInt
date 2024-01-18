@@ -19,8 +19,22 @@ namespace Tienda_2Evaluacion
 
         private MySqlConnection Connect()
         {
-            string connectionString = "Server=localhost;Port=1818;Database=tienda_deportes;User Id=root;Password=root;";
-            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlConnection connection = null;
+
+            try
+            {
+                //string connectionString = "Server=localhost;Database=tienda_articulos;User Id=root;Password=root;";
+                connection = new MySqlConnection(Utils.Constants.CONNECTION_STRING);
+                connection.Open(); // This is where the error occurs
+
+                // Optionally, you can print a message indicating a successful connection
+                Console.WriteLine("Connected to MySQL server.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error connecting to MySQL server: " + ex.Message);
+            }
+
             return connection;
         }
 
@@ -30,7 +44,7 @@ namespace Tienda_2Evaluacion
 
             using (MySqlConnection connection = Connect())
             {
-                connection.Open();
+                //connection.Open();
 
                 string consulta = "SELECT * FROM articulos";
                 using (MySqlCommand command = new MySqlCommand(consulta, connection))
