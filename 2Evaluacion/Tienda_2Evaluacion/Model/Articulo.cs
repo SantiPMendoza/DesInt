@@ -9,19 +9,24 @@ namespace Tienda_2Evaluacion.Model
 {
     public class Articulo
     {
-        public int Id { get; set; }
+        public int Id { get; set; } 
+        
         public SportType? Deporte { get; set; }
         public ArticleType? TipoArticulo { get; set; }
-        public string Nombre { get; set; }
-        public double Precio { get; set; }
+        
+        public string? Nombre { get; set; } // Updated to nullable string
+        public decimal? Precio { get; set; } // Updated to decimal
 
+        public Articulo() { }
+        
         public enum SportType
         {
             futbol,
             baloncesto,
             tenis,
             esqui,
-            boxeo
+            boxeo,
+            otro
         }
 
         public enum ArticleType
@@ -31,5 +36,7 @@ namespace Tienda_2Evaluacion.Model
             zapatillas,
             articulo
         }
+        
+        
     }
 }

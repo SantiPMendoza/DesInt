@@ -1,5 +1,8 @@
 using MySql.Data.MySqlClient;
 using Tienda_2Evaluacion.Model;
+using System.Data;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Tienda_2Evaluacion
 {
@@ -8,76 +11,27 @@ namespace Tienda_2Evaluacion
         public List<Articulo> ListaArticulos { get; set; }
         public TiendaDeportes()
         {
-            ListaArticulos = new List<Articulo>();
+            //this.ListaArticulos = new List<Articulo>();
             InitializeComponent();
+            CargarDatos();
         }
 
-        private void TiendaDeportes_Load(object sender, EventArgs e)
+        private void CargarDatos()
         {
-            RecogerYMostrarArticulos();
+            ConexionBD conexionBD = new ConexionBD();
+            List<Articulo> listaArticulos = conexionBD.GetArticulos();
+
+            if (listaArticulos.Count > 0)
+            {
+                dataGridView1.DataSource = listaArticulos;
+
+                dataGridView1.Columns["Id"].Visible = false; 
+            }
+            else
+            {
+                MessageBox.Show("No se pudieron cargar datos desde la base de datos.");
+            }
         }
 
-        private MySqlConnection Connect()
-        {
-            MySqlConnection connection = null;
-
-            try
-            {
-                //string connectionString = "Server=localhost;Database=tienda_articulos;User Id=root;Password=root;";
-                connection = new MySqlConnection(Utils.Constants.CONNECTION_STRING);
-                connection.Open(); // This is where the error occurs
-
-                // Optionally, you can print a message indicating a successful connection
-                Console.WriteLine("Connected to MySQL server.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error connecting to MySQL server: " + ex.Message);
-            }
-
-            return connection;
-        }
-
-        public List<Articulo> RecogerYMostrarArticulos()
-        {
-            List<Articulo> listaArticulos = new List<Articulo>();
-
-            using (MySqlConnection connection = Connect())
-            {
-                //connection.Open();
-
-                string consulta = "SELECT * FROM articulos";
-                using (MySqlCommand command = new MySqlCommand(consulta, connection))
-                {
-                    try
-                    {
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Articulo articulo = new Articulo
-                                {
-                                    Id = Convert.ToInt32(reader["id"]),
-                                    Deporte = (Articulo.SportType)Enum.Parse(typeof(Articulo.SportType), reader["deporte"].ToString(), true),
-                                    TipoArticulo = (Articulo.ArticleType)Enum.Parse(typeof(Articulo.ArticleType), reader["tipo_articulo"].ToString(), true),
-                                    Nombre = reader["nombre"].ToString(),
-                                    Precio = (double)Convert.ToDecimal(reader["precio"])
-                                };
-
-                                listaArticulos.Add(articulo);
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Error reading data from database: " + ex.Message);
-                    }
-                    dataGridView1.DataSource = null;
-                    dataGridView1.DataSource = ListaArticulos;
-                }
-            }
-
-            return listaArticulos;
-        }
     }
 }

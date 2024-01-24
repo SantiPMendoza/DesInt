@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             panel2 = new Panel();
             comboBox2 = new ComboBox();
@@ -35,12 +36,16 @@
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             dataGridView1 = new DataGridView();
+            articuloBindingSource1 = new BindingSource(components);
             labelPrecio = new Label();
             labelNombre = new Label();
             labelTipo = new Label();
             labelDeporte = new Label();
+            articuloBindingSource = new BindingSource(components);
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)articuloBindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)articuloBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -107,6 +112,10 @@
             dataGridView1.TabIndex = 4;
             dataGridView1.AutoGenerateColumns = true;
             // 
+            // articuloBindingSource1
+            // 
+            articuloBindingSource1.DataSource = typeof(Model.Articulo);
+            // 
             // labelPrecio
             // 
             labelPrecio.AutoSize = true;
@@ -143,6 +152,10 @@
             labelDeporte.TabIndex = 0;
             labelDeporte.Text = "Deporte";
             // 
+            // articuloBindingSource
+            // 
+            articuloBindingSource.DataSource = typeof(Model.Articulo);
+            // 
             // TiendaDeportes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -152,10 +165,11 @@
             Controls.Add(panel1);
             Name = "TiendaDeportes";
             Text = "Sportanus";
-            Load += TiendaDeportes_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)articuloBindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)articuloBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -172,5 +186,7 @@
         private ComboBox comboBox1;
         private TextBox textBox2;
         private TextBox textBox1;
+        private BindingSource articuloBindingSource;
+        private BindingSource articuloBindingSource1;
     }
 }
