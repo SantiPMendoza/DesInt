@@ -1,4 +1,6 @@
-﻿namespace Tienda_2Evaluacion
+﻿using Tienda_2Evaluacion.Model;
+
+namespace Tienda_2Evaluacion
 {
     partial class TiendaDeportes
     {
@@ -31,16 +33,17 @@
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
             panel2 = new Panel();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            buttonBuscar = new Button();
+            comboBoxTipo = new ComboBox();
+            comboBoxDeporte = new ComboBox();
+            textBoxPrecio = new TextBox();
+            textBoxNombre = new TextBox();
             dataGridView1 = new DataGridView();
-            articuloBindingSource1 = new BindingSource(components);
             labelPrecio = new Label();
             labelNombre = new Label();
             labelTipo = new Label();
             labelDeporte = new Label();
+            articuloBindingSource1 = new BindingSource(components);
             articuloBindingSource = new BindingSource(components);
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -58,10 +61,11 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(comboBox2);
-            panel2.Controls.Add(comboBox1);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(buttonBuscar);
+            panel2.Controls.Add(comboBoxTipo);
+            panel2.Controls.Add(comboBoxDeporte);
+            panel2.Controls.Add(textBoxPrecio);
+            panel2.Controls.Add(textBoxNombre);
             panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(labelPrecio);
             panel2.Controls.Add(labelNombre);
@@ -73,35 +77,47 @@
             panel2.Size = new Size(800, 402);
             panel2.TabIndex = 1;
             // 
-            // comboBox2
+            // buttonBuscar
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(89, 45);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 8;
+            buttonBuscar.Location = new Point(287, 9);
+            buttonBuscar.Name = "buttonBuscar";
+            buttonBuscar.Size = new Size(75, 23);
+            buttonBuscar.TabIndex = 9;
+            buttonBuscar.Text = "Buscar";
+            buttonBuscar.UseVisualStyleBackColor = true;
+            buttonBuscar.Click += button1_Click;
             // 
-            // comboBox1
+            // comboBoxTipo
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(89, 9);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 7;
+            comboBoxTipo.FormattingEnabled = true;
+            comboBoxTipo.Items.AddRange(new object[] { Articulo.ArticleType.accesorio, Articulo.ArticleType.ropa, Articulo.ArticleType.zapatillas, Articulo.ArticleType.articulo });
+            comboBoxTipo.Location = new Point(89, 45);
+            comboBoxTipo.Name = "comboBoxTipo";
+            comboBoxTipo.Size = new Size(121, 23);
+            comboBoxTipo.TabIndex = 8;
             // 
-            // textBox2
+            // comboBoxDeporte
             // 
-            textBox2.Location = new Point(89, 119);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(121, 23);
-            textBox2.TabIndex = 6;
+            comboBoxDeporte.FormattingEnabled = true;
+            comboBoxDeporte.Items.AddRange(new object[] { Articulo.SportType.futbol, Articulo.SportType.baloncesto, Articulo.SportType.tenis, Articulo.SportType.esqui, Articulo.SportType.boxeo, Articulo.SportType.otro });
+            comboBoxDeporte.Location = new Point(89, 9);
+            comboBoxDeporte.Name = "comboBoxDeporte";
+            comboBoxDeporte.Size = new Size(121, 23);
+            comboBoxDeporte.TabIndex = 7;
             // 
-            // textBox1
+            // textBoxPrecio
             // 
-            textBox1.Location = new Point(89, 81);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(121, 23);
-            textBox1.TabIndex = 5;
+            textBoxPrecio.Location = new Point(89, 119);
+            textBoxPrecio.Name = "textBoxPrecio";
+            textBoxPrecio.Size = new Size(121, 23);
+            textBoxPrecio.TabIndex = 6;
+            // 
+            // textBoxNombre
+            // 
+            textBoxNombre.Location = new Point(89, 81);
+            textBoxNombre.Name = "textBoxNombre";
+            textBoxNombre.Size = new Size(121, 23);
+            textBoxNombre.TabIndex = 5;
             // 
             // dataGridView1
             // 
@@ -110,11 +126,6 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(800, 235);
             dataGridView1.TabIndex = 4;
-            dataGridView1.AutoGenerateColumns = true;
-            // 
-            // articuloBindingSource1
-            // 
-            articuloBindingSource1.DataSource = typeof(Model.Articulo);
             // 
             // labelPrecio
             // 
@@ -152,9 +163,13 @@
             labelDeporte.TabIndex = 0;
             labelDeporte.Text = "Deporte";
             // 
+            // articuloBindingSource1
+            // 
+            articuloBindingSource1.DataSource = typeof(Articulo);
+            // 
             // articuloBindingSource
             // 
-            articuloBindingSource.DataSource = typeof(Model.Articulo);
+            articuloBindingSource.DataSource = typeof(Articulo);
             // 
             // TiendaDeportes
             // 
@@ -182,11 +197,12 @@
         private Label labelNombre;
         private Label labelTipo;
         private Label labelDeporte;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private ComboBox comboBoxTipo;
+        private ComboBox comboBoxDeporte;
+        private TextBox textBoxPrecio;
+        private TextBox textBoxNombre;
         private BindingSource articuloBindingSource;
         private BindingSource articuloBindingSource1;
+        private Button buttonBuscar;
     }
 }

@@ -11,11 +11,11 @@ namespace Tienda_2Evaluacion.Model
     {
         public int Id { get; set; } 
         
-        public SportType? Deporte { get; set; }
-        public ArticleType? TipoArticulo { get; set; }
+        public SportType? Deporte { get; set; } = SportType.otro;
+        public ArticleType? TipoArticulo { get; set; } = ArticleType.articulo;
         
-        public string? Nombre { get; set; } // Updated to nullable string
-        public decimal? Precio { get; set; } // Updated to decimal
+        public string? Nombre { get; set; }=string.Empty;
+        public decimal? Precio { get; set; }=decimal.Zero;
 
         public Articulo() { }
         
@@ -31,6 +31,7 @@ namespace Tienda_2Evaluacion.Model
 
         public enum ArticleType
         {
+            
             accesorio,
             ropa,
             zapatillas,
