@@ -8,6 +8,6 @@ namespace Tienda_2Evaluacion.Utils
 {
     internal class Constants
     {
-        public const string CONNECTION_STRING = "server=localhost;port=1818;uid=root;pwd=root;database=tienda_deportes;";
+        public const string CONNECTION_STRING = "server=localhost;database=tienda_deportes;uid=root;password=root";
     }
 }
