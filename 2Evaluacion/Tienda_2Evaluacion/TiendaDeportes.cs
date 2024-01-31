@@ -147,6 +147,10 @@ namespace Tienda_2Evaluacion
 
                 connection.CloseCon();
 
+
+                // Actualizar gráfico
+                ConfigurarGrafico();
+
             }
         }
 
@@ -197,6 +201,9 @@ namespace Tienda_2Evaluacion
 
             // Actualizar la lista de artículos
             CargarDatos();
+
+            // Actualizar gráfico
+            ConfigurarGrafico();
         }
         /**
          * Método para INSERTAR un artículo 
@@ -227,6 +234,9 @@ namespace Tienda_2Evaluacion
             // Actualizar la lista de artículos
             CargarDatos();
 
+            // Actualizar gráfico
+            ConfigurarGrafico();
+
         }
 
         /**
@@ -244,8 +254,6 @@ namespace Tienda_2Evaluacion
             // Incrementar el total de precios
             PrecioTotal += articuloSeleccionado.Precio ?? 0;
 
-            // Mostrar el nombre del artículo seleccionado
-            textBoxNombre.Text = articuloSeleccionado.Nombre;
 
             ListaArticulosCarrito.Add(articuloSeleccionado);
 
