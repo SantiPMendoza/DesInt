@@ -78,6 +78,8 @@ namespace Tienda_2Evaluacion
                 dataGridViewBD.DataSource = ListaArticulosBD;
 
                 dataGridViewBD.Columns["Id"].Visible = false;
+
+
             }
             else
             {

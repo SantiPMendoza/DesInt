@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms; // Make sure to include this for MessageBox
 using MySql.Data.MySqlClient;
 using Tienda_2Evaluacion.Model;
@@ -45,7 +46,7 @@ namespace Tienda_2Evaluacion
                                 articulo.Nombre = reader.IsDBNull(reader.GetOrdinal("nombre")) ? null : reader.GetString(reader.GetOrdinal("nombre"));
                                 articulo.Precio = reader.IsDBNull(reader.GetOrdinal("precio")) ? (decimal?)null : reader.GetDecimal(reader.GetOrdinal("precio"));
 
-                                listaArticulos.Add(articulo); // Añadimos el nuevo Artículo a una lista de Artículos
+                            listaArticulos.Add(articulo); // Añadimos el nuevo Artículo a una lista de Artículos
                             }
                         }
                     }
@@ -126,8 +127,8 @@ namespace Tienda_2Evaluacion
                 // Abrir la conexión
                 GetCon();
 
-                // Consulta SQL para actualizar el artículo
-                string consulta = "INSERT articulos SET deporte = @deporte, tipo_articulo = @tipo_articulo, nombre = @nombre, precio = @precio";
+                // Consulta SQL para insertar el artículo
+                string consulta = "INSERT INTO articulos (deporte, tipo_articulo, nombre, precio) VALUES (@deporte, @tipo_articulo, @nombre, @precio)";
 
                 using (MySqlCommand command = new MySqlCommand(consulta, GetCon()))
                 {
@@ -136,7 +137,6 @@ namespace Tienda_2Evaluacion
                     command.Parameters.AddWithValue("@tipo_articulo", articulo.TipoArticulo.ToString());
                     command.Parameters.AddWithValue("@nombre", articulo.Nombre);
                     command.Parameters.AddWithValue("@precio", articulo.Precio ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@id", articulo.Id);
 
                     // Ejecutar la consulta
                     command.ExecuteNonQuery();
@@ -144,7 +144,7 @@ namespace Tienda_2Evaluacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al actualizar el artículo: " + ex.Message);
+                MessageBox.Show("Error al insertar el artículo: " + ex.Message);
             }
             finally
             {
